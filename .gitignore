@@ -1,0 +1,108 @@
+
+# Created by https://www.gitignore.io/api/c++,eclipse
+# Edit at https://www.gitignore.io/?templates=c++,eclipse
+
+### C++ ###
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+### Eclipse ###
+Sensor/.metadata
+Sensor/bin/
+Sensor/tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+Sensor/local.properties
+Sensor/.settings/
+Sensor/.loadpath
+Sensor/.recommenders
+
+# External tool builders
+Sensor/.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# PyDev specific (Python IDE for Eclipse)
+*.pydevproject
+
+# CDT-specific (C/C++ Development Tooling)
+Sensor/.cproject
+
+# CDT- autotools
+Sensor/.autotools
+
+# Java annotation processor (APT)
+Sensor/.factorypath
+
+# PDT-specific (PHP Development Tools)
+Sensor/.buildpath
+
+# sbteclipse plugin
+Sensor/.target
+
+# Tern plugin
+Sensor/.tern-project
+
+# TeXlipse plugin
+Sensor/.texlipse
+
+# STS (Spring Tool Suite)
+Sensor/.springBeans
+
+# Code Recommenders
+Sensor/.recommenders/
+
+# Annotation Processing
+Sensor/.apt_generated/
+
+# Scala IDE specific (Scala & Java development for Eclipse)
+Sensor/.cache-main
+Sensor/.scala_dependencies
+Sensor/.worksheet
+
+### Eclipse Patch ###
+# Eclipse Core
+Sensor/.project
+
+# JDT-specific (Eclipse Java Development Tools)
+Sensor/.classpath
+
+# Annotation Processing
+Sensor/.apt_generated
+
+Sensor/.sts4-cache/
+
+# End of https://www.gitignore.io/api/c++,eclipse

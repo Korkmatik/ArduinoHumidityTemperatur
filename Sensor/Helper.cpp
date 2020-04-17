@@ -7,6 +7,10 @@
 
 #include "Helper.h"
 
+#include <Arduino.h>
+
+#include "dht_nonblocking.h"
+
 Helper::Helper() { }
 
 Helper::~Helper() { }
@@ -22,4 +26,23 @@ static int Helper::getNumberOfDigits(int number) {
 	}
 
 	return digits;
+}
+
+static bool Helper::measureEnvironment(
+		float *temperature,
+		float *humidity,
+		const unsigned long &max,
+		DHT_nonblocking* dhtSensor)
+{
+	static unsigned long measurementTimestamp = millis( );
+
+	/* Measure once every four seconds. */
+	if(millis( ) - measurementTimestamp > max) {
+		if(dhtSensor->measure(temperature, humidity)) {
+			measurementTimestamp = millis( );
+			return true;
+		}
+	}
+
+	return false;
 }

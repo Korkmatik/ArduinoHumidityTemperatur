@@ -4,6 +4,9 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
+import com.fazecast.jSerialComm.SerialPort;
+
+import korkmatik.main.db.service.SerialCommService;
 import korkmatik.main.model.SettingsModel;
 import korkmatik.main.model.Temperature;
 
@@ -12,7 +15,6 @@ public class SettingsController {
 	private SettingsModel settingsModel;
 	
 	private HashMap<Boolean, String> saveChoices;
-	private boolean isFileSet;
 
 	public SettingsController() {
 		settingsModel = new SettingsModel();
@@ -20,8 +22,6 @@ public class SettingsController {
 		saveChoices = new HashMap<Boolean, String>();
 		saveChoices.put(true, "Yes");
 		saveChoices.put(false, "No");
-		
-		isFileSet = false;
 	}
 
 	public void updateCommPort(String selectedItem) {
@@ -58,7 +58,19 @@ public class SettingsController {
 
 	public void setFile(File file) {
 		settingsModel.setSaveFile(file);
-		isFileSet = true;
 	}
 
+	public String[] getSerialPortNames() {
+		int numberPorts = SerialCommService.getNumberSerialPorts();
+		String[] portNames = new String[numberPorts];
+		
+		int i = 0; 
+		for (SerialPort p : SerialCommService.getSerialPorts()) {
+			System.out.println(p.getSystemPortName());
+			portNames[i] = p.getSystemPortName();
+			i += 1;
+		}
+
+		return portNames;
+	}
 }

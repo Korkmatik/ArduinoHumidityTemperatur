@@ -34,8 +34,8 @@ public class SettingsView {
 		createWindow();
 	}
 
-	private String[] loadCommPorts() {
-		return new String[]{ "COM1", "COM5" };
+	private String[] loadCommPorts() {		
+		return controller.getSerialPortNames();
 	}
 
 	private void createWindow() {

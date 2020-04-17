@@ -106,3 +106,5 @@ Sensor/.apt_generated
 Sensor/.sts4-cache/
 
 # End of https://www.gitignore.io/api/c++,eclipse
+
+Sensor/build

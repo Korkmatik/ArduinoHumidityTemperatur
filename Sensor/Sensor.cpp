@@ -12,9 +12,12 @@ DHT_nonblocking dhtSensor( DHT_SENSOR_PIN, DHT_SENSOR_TYPE );
 Sender* sender;
 unsigned long max;
 
-void setup() {
-	Serial.begin(9600);
 
+/* Does work of sending a message */
+void messageSendingProcess(float* temperature, float* humidity);
+
+
+void setup() {
 	sender = new Sender();
 	max = 3000ul;
 }
@@ -24,10 +27,15 @@ void loop() {
 	float temperature;
 	float humidity;
 
+	messageSendingProcess(&temperature, &humidity);
+}
+
+
+void messageSendingProcess(float* temperature, float* humidity) {
 	// Check if new message should be send
 	bool isMeasurementAvailable = Helper::measureEnvironment(
-			&temperature,
-			&humidity,
+			temperature,
+			humidity,
 			max,
 			&dhtSensor
 	);
@@ -38,4 +46,3 @@ void loop() {
 		sender->sendHumidity(humidity);
 	}
 }
-

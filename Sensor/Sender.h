@@ -13,8 +13,8 @@ public:
 	Sender();
 	virtual ~Sender();
 
-	void sendTemperature(float temperature);
-	void sendHumidity(float humidity);
+	void sendTemperature(float* temperature);
+	void sendHumidity(float* humidity);
 };
 
 #endif /* SENDER_H_ */

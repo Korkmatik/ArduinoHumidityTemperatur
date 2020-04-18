@@ -18,6 +18,7 @@ The Java Project gets the data through the serial port and displays it in a Grap
 # Java Libraries
 * jSerialComm
 * Java Swing
+* JFreeChart
 
 # Software
 * Eclipse

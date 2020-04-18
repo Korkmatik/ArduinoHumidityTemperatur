@@ -2,8 +2,8 @@ package korkmatik.main.controller.chart;
 
 import org.jfree.data.category.DefaultCategoryDataset;
 
-import korkmatik.main.db.service.SerialCommService;
 import korkmatik.main.model.SettingsModel;
+import korkmatik.main.service.db.SerialCommService;
 
 public abstract class ChartDataController extends Thread {
 

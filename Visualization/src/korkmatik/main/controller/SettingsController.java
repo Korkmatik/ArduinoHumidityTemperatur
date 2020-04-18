@@ -6,9 +6,9 @@ import java.util.Map.Entry;
 
 import com.fazecast.jSerialComm.SerialPort;
 
-import korkmatik.main.db.service.SerialCommService;
 import korkmatik.main.model.SettingsModel;
 import korkmatik.main.model.Temperature;
+import korkmatik.main.service.db.SerialCommService;
 
 public class SettingsController {
 	

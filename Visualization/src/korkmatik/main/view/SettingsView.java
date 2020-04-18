@@ -185,7 +185,10 @@ public class SettingsView {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// TODO: open next window and close this window
+			// TODO: try to connect to serial port and display error if cant connect
+			
+			VisuView next = new VisuView();
+			frame.dispose();
 		}
 		
 	}

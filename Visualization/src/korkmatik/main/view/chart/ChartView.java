@@ -13,15 +13,13 @@ import org.jfree.chart.plot.PlotOrientation;
 
 import korkmatik.main.controller.chart.ChartDataController;
 
-public abstract class ChartView {
+public abstract class ChartView extends JPanel {
 
 	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 5025131161902713651L;
 	
 	
-	public ChartView(ChartDataController controller, String chartName, String yAxisName, JPanel parent) {		
-		JPanel panel = new JPanel();
-		
+	public ChartView(ChartDataController controller, String chartName, String yAxisName) {	
 		JFreeChart lineChart = ChartFactory.createLineChart(
 				chartName,
 				"Seconds",
@@ -37,24 +35,26 @@ public abstract class ChartView {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				controller.start();
+				if (controller != null && !controller.isAlive()) {
+					controller.start();
+				}
 			}
 		});
 		
 		JButton buttonStop = new JButton("Stop");
-		buttonStart.addActionListener(new ActionListener() {
+		buttonStop.addActionListener(new ActionListener() {
 			
 			@SuppressWarnings("deprecation")
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				controller.stop();
+				if (controller != null && controller.isAlive()) {
+					controller.stop();
+				}
 			}
 		});
 		
-		panel.add(chartPanel);
-		panel.add(buttonStart);
-		panel.add(buttonStop);
-		
-		parent.add(panel);
+		add(chartPanel);
+		add(buttonStart);
+		add(buttonStop);
 	}
 }

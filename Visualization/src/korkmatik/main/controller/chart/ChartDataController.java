@@ -12,8 +12,8 @@ public abstract class ChartDataController extends Thread {
 	
 	private String yAxisName;
 	
-	private int i = 0;
-	private int j = 0;
+	private int currentX = 0;
+	private int lowerX = 0;
 	
 	public ChartDataController(String yAxisName) {
 		String port = SettingsModel.getInstance().getCommPortName();
@@ -32,17 +32,16 @@ public abstract class ChartDataController extends Thread {
 	
 	public void run() {
 		while (true) {
-			// TODO: Get real values instead
-			dataset.addValue(getValue(), yAxisName, Integer.toString(i));
-			i += 3;
+			dataset.addValue(getValue(), yAxisName, Integer.toString(currentX));
+			currentX += 3;
 
-			if (i > 30) {
-				dataset.removeValue(yAxisName, Integer.toString(j));
-				j += 3;
+			if (currentX > 30) {
+				dataset.removeValue(yAxisName, Integer.toString(lowerX));
+				lowerX += 3;
 			}			
 
 			try {
-				sleep(1000);
+				sleep(500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -54,4 +53,5 @@ public abstract class ChartDataController extends Thread {
 	protected SerialCommService getSerialCommService() {
 		return serialCommService;
 	}
+
 }

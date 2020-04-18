@@ -29,16 +29,20 @@ public abstract class ChartDataController extends Thread {
 
 		return dataset;
 	}
-	
+
 	public void run() {
 		while (true) {
-			dataset.addValue(getValue(), yAxisName, Integer.toString(currentX));
-			currentX += 3;
+			Float newValue = getValue();
 
-			if (currentX > 30) {
-				dataset.removeValue(yAxisName, Integer.toString(lowerX));
-				lowerX += 3;
-			}			
+			if (newValue != null) {
+				dataset.addValue(newValue, yAxisName, Integer.toString(currentX));
+				currentX += 3;
+
+				if (currentX > 30) {
+					dataset.removeValue(yAxisName, Integer.toString(lowerX));
+					lowerX += 3;
+				}
+			}
 
 			try {
 				sleep(500);

@@ -5,7 +5,7 @@ import java.util.Random;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 import korkmatik.main.model.SettingsModel;
-import korkmatik.main.service.db.SerialCommService;
+import korkmatik.main.service.SerialCommService;
 
 public class TemperatureDataController extends ChartDataController {
 	

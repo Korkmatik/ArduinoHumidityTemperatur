@@ -1,4 +1,4 @@
-package korkmatik.main.service.db;
+package korkmatik.main.service;
 
 import com.fazecast.jSerialComm.SerialPort;
 

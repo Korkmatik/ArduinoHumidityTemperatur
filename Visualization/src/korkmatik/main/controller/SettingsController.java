@@ -8,7 +8,7 @@ import com.fazecast.jSerialComm.SerialPort;
 
 import korkmatik.main.model.SettingsModel;
 import korkmatik.main.model.Temperature;
-import korkmatik.main.service.db.SerialCommService;
+import korkmatik.main.service.SerialCommService;
 
 public class SettingsController {
 	

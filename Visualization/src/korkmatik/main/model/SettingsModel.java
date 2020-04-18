@@ -13,6 +13,17 @@ public class SettingsModel {
 
 	private Temperature temperatureType;
 
+	private static SettingsModel instance = null;
+	
+	
+	public static SettingsModel getInstance() {
+		if (instance == null) {
+			instance = new SettingsModel();
+		}
+		
+		return instance;
+	}
+	
 	public String getCommPortName() {
 		return commPortName;
 	}
@@ -45,4 +56,5 @@ public class SettingsModel {
 		this.saveFile = saveFile;
 	}
 
+	private SettingsModel() { }
 }

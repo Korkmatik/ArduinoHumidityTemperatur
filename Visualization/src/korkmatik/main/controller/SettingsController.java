@@ -17,7 +17,7 @@ public class SettingsController {
 	private HashMap<Boolean, String> saveChoices;
 
 	public SettingsController() {
-		settingsModel = new SettingsModel();
+		settingsModel = SettingsModel.getInstance();
 		
 		saveChoices = new HashMap<Boolean, String>();
 		saveChoices.put(true, "Yes");

@@ -33,6 +33,7 @@ public class DatabaseService {
 	public void close() throws SQLException {
 		connection.close();
 		isOpen = false;
+		System.out.println("Database closed");
 	}
 	
 	public void createTablesIfNotExists() throws SQLException {
@@ -69,5 +70,7 @@ public class DatabaseService {
 		pstmt.setTimestamp(1, new Timestamp(System.currentTimeMillis()));
 		pstmt.setFloat(2, value);
 		pstmt.close();
+		
+		System.out.println("Saved data");
 	}
 }

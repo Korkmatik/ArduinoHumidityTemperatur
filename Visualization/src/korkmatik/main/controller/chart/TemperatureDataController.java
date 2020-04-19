@@ -4,8 +4,10 @@ import java.util.Random;
 
 import org.jfree.data.category.DefaultCategoryDataset;
 
+import korkmatik.main.controller.VisualizationController;
 import korkmatik.main.model.SettingsModel;
 import korkmatik.main.service.SerialComService;
+import korkmatik.main.service.db.DatabaseService;
 
 public class TemperatureDataController extends ChartDataController {
 	
@@ -23,8 +25,8 @@ public class TemperatureDataController extends ChartDataController {
 
 	@Override
 	protected void saveData(Float newValue) {
-		// TODO Auto-generated method stub
-		
+		VisualizationController visualizationController = getVisualizationController();
+		visualizationController.saveData(newValue, DatabaseService.TABLE_TEMPERATURE);
 	}
 
 }

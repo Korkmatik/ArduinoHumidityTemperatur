@@ -77,6 +77,7 @@ public abstract class ChartDataController extends Thread {
 	}
 
 	public void halt() {
+		System.out.println("Halting");
 		serialComService.closeComPort();
 		visualizationController.closeDatabase();
 		stop();

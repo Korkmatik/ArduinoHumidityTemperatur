@@ -3,6 +3,7 @@ package korkmatik.main.controller.chart;
 import java.util.Random;
 
 import korkmatik.main.controller.VisualizationController;
+import korkmatik.main.service.db.DatabaseService;
 
 public class HumidityDataController extends ChartDataController {
 
@@ -19,6 +20,7 @@ public class HumidityDataController extends ChartDataController {
 	@Override
 	protected void saveData(Float newValue) {
 		VisualizationController visualizationController = getVisualizationController();
+		visualizationController.saveData(newValue, DatabaseService.TABLE_HUMIDITY);
 	}
 
 }

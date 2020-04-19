@@ -27,6 +27,7 @@ public class VisualizationController {
 	}
 	
 	public void saveData(float value, String db) {
+		System.out.println("Trying to save data " + value + " to db: " + db);
 		switch (db) {
 		case DatabaseService.TABLE_HUMIDITY:
 			try {

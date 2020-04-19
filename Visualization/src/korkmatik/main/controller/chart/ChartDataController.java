@@ -1,18 +1,14 @@
 package korkmatik.main.controller.chart;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
 import org.jfree.data.category.DefaultCategoryDataset;
 
-import com.fazecast.jSerialComm.SerialPort;
-
 import korkmatik.main.model.SettingsModel;
-import korkmatik.main.service.SerialCommService;
+import korkmatik.main.service.SerialComService;
 
 public abstract class ChartDataController extends Thread {
 
 	private static DefaultCategoryDataset dataset;
-	private SerialCommService serialCommService;
+	private SerialComService serialComService;
 	
 	private String yAxisName;
 	
@@ -22,7 +18,7 @@ public abstract class ChartDataController extends Thread {
 	
 	public ChartDataController(String yAxisName) {
 		String port = SettingsModel.getInstance().getCommPortName();
-		serialCommService = new SerialCommService(port);
+		serialComService = new SerialComService(port);
 		
 		this.yAxisName = yAxisName;
 	}
@@ -36,18 +32,18 @@ public abstract class ChartDataController extends Thread {
 	}
 
 	public void run() {
-		serialCommService.openPort();
+		serialComService.openPort();
 		
 		while (true) {
 			Float newValue = getValue();
 
 			if (newValue != null) {
 				dataset.addValue(newValue, yAxisName, Integer.toString(currentX));
-				currentX += SerialCommService.getInterval();
+				currentX += SerialComService.getInterval();
 
 				if (currentX > 30) {
 					dataset.removeValue(yAxisName, Integer.toString(lowerX));
-					lowerX += SerialCommService.getInterval();
+					lowerX += SerialComService.getInterval();
 				}
 			}
 
@@ -61,12 +57,12 @@ public abstract class ChartDataController extends Thread {
 	
 	public abstract Float getValue();
 
-	protected SerialCommService getSerialCommService() {
-		return serialCommService;
+	protected SerialComService getSerialComService() {
+		return serialComService;
 	}
 
 	public void halt() {
-		serialCommService.closeComPort();
+		serialComService.closeComPort();
 		stop();
 	}
 

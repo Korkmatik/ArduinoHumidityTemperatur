@@ -8,7 +8,7 @@ import com.fazecast.jSerialComm.SerialPort;
 
 import korkmatik.main.model.SettingsModel;
 import korkmatik.main.model.Temperature;
-import korkmatik.main.service.SerialCommService;
+import korkmatik.main.service.SerialComService;
 
 public class SettingsController {
 	
@@ -61,11 +61,11 @@ public class SettingsController {
 	}
 
 	public String[] getSerialPortNames() {
-		int numberPorts = SerialCommService.getNumberSerialPorts();
+		int numberPorts = SerialComService.getNumberSerialPorts();
 		String[] portNames = new String[numberPorts];
 		
 		int i = 0; 
-		for (SerialPort p : SerialCommService.getSerialPorts()) {
+		for (SerialPort p : SerialComService.getSerialPorts()) {
 			System.out.println(p.getSystemPortName());
 			portNames[i] = p.getSystemPortName();
 			i += 1;

@@ -10,7 +10,7 @@ import com.fazecast.jSerialComm.SerialPortEvent;
 import korkmatik.main.model.SettingsModel;
 import korkmatik.utils.Converter;
 
-public class SerialCommService {
+public class SerialComService {
 
 	public static final String HUMIDITY_PROTOCOL = "HUMI";
 	public static final String TEMPERATURE_PROTOCOL = "TEMP";
@@ -24,7 +24,7 @@ public class SerialCommService {
 	
 	private Converter converter;
 	
-	public SerialCommService(String serialPortName) {
+	public SerialComService(String serialPortName) {
 		portName = serialPortName;
 		port = null;
 		
@@ -107,10 +107,10 @@ public class SerialCommService {
 				
 				
 				switch(type) {
-				case SerialCommService.TEMPERATURE_PROTOCOL:
+				case SerialComService.TEMPERATURE_PROTOCOL:
 					temperature = value;
 					break;
-				case SerialCommService.HUMIDITY_PROTOCOL:
+				case SerialComService.HUMIDITY_PROTOCOL:
 					humidity = value;
 					break;
 				default:
@@ -154,6 +154,6 @@ public class SerialCommService {
 	}
 
 	public static int getInterval() {
-		return SerialCommService.INTERVAL;
+		return SerialComService.INTERVAL;
 	}
 }

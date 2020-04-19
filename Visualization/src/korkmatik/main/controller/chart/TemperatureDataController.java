@@ -5,7 +5,7 @@ import java.util.Random;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 import korkmatik.main.model.SettingsModel;
-import korkmatik.main.service.SerialCommService;
+import korkmatik.main.service.SerialComService;
 
 public class TemperatureDataController extends ChartDataController {
 	
@@ -17,7 +17,7 @@ public class TemperatureDataController extends ChartDataController {
 
 	@Override
 	public Float getValue() {
-		 Float value = getSerialCommService().getTemperature();
+		 Float value = getSerialComService().getTemperature();
 		 return value;
 	}
 

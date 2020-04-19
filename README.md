@@ -14,11 +14,19 @@ The Java Project gets the data through the serial port and displays it in a Grap
 ![Visualization Window](Visualization/.doc/Screenshots/Visualization0.png)
 ![Visualization Window](Visualization/.doc/Screenshots/Visualization1.png)
 
-# Arduino Components
+# Arduino
+![Picture of the Arduino](Sensor/.doc/Pictures/ArduinoWithSensor.jpg)
+
+## Arduino Components
 * 3x Male-Female Jumper Wires
 * DHT11 Temperature and Humidity Module
 * Arduino Mega
 * USB Cable to connect the Arduino to a PC
+
+## Wiring
+* Connect the DHT11 Ground Pin to Ground
+* Connect the DHT11 VCC Pin to 5V
+* Connect the DHT11 Data Pin Digital 2
 
 # Software
 * Eclipse

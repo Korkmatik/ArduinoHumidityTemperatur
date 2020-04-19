@@ -19,8 +19,8 @@ public class SerialComService {
 	private String portName;
 	private SerialPort port;
 	
-	private Float humidity;
-	private Float temperature;
+	private volatile Float humidity;
+	private volatile Float temperature;
 	
 	private Converter converter;
 	
@@ -75,17 +75,18 @@ public class SerialComService {
 				int readOneByteASCII;
 				String message = "";
 				char data;
+				
+				System.out.println("Reading data");
 				do {
 					try {
 						readOneByteASCII = comPortStream.read();
 						data = (char)readOneByteASCII;
+						System.out.print(data);
 						message += data;
 					} catch (IOException e) {
 						data = '\0';
 					}
 				} while (data != ')');
-				
-				System.out.println(message);
 				
 				// Parsing data
 				message = message.replace("(", "");

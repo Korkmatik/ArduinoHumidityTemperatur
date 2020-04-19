@@ -187,7 +187,7 @@ public class SettingsView {
 		public void actionPerformed(ActionEvent e) {
 			// TODO: try to connect to serial port and display error if cant connect
 			
-			VisuView next = new VisuView();
+			VisualizationView next = new VisualizationView();
 			frame.dispose();
 		}
 		

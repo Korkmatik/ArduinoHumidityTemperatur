@@ -13,4 +13,10 @@ public class TemperatureChartView extends ChartView {
 				"Temperature", 
 				SettingsModel.getInstance().getTemperatureType().toString());
 	}
+
+	@Override
+	protected void startButtonAction() {
+		setController(new TemperatureDataController());
+		getController().start();
+	}
 }

@@ -18,8 +18,11 @@ public abstract class ChartView extends JPanel {
 	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 5025131161902713651L;
 	
+	ChartDataController controller;
 	
-	public ChartView(ChartDataController controller, String chartName, String yAxisName) {	
+	public ChartView(ChartDataController controller, String chartName, String yAxisName) {
+		this.controller = controller;
+		
 		JFreeChart lineChart = ChartFactory.createLineChart(
 				chartName,
 				"Seconds",
@@ -35,20 +38,21 @@ public abstract class ChartView extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (controller != null && !controller.isAlive()) {
-					controller.start();
+				if (getController() != null) {
+					getController().removeData();
 				}
+				
+				startButtonAction();
 			}
 		});
 		
 		JButton buttonStop = new JButton("Stop");
 		buttonStop.addActionListener(new ActionListener() {
 			
-			@SuppressWarnings("deprecation")
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (controller != null && controller.isAlive()) {
-					controller.stop();
+				if (getController() != null && getController().isAlive()) {
+					getController().halt();
 				}
 			}
 		});
@@ -57,4 +61,19 @@ public abstract class ChartView extends JPanel {
 		add(buttonStart);
 		add(buttonStop);
 	}
+	
+	protected ChartDataController getController() {
+		return controller;
+	}
+
+
+
+	protected synchronized void setController(ChartDataController controller) {
+		this.controller = controller;
+	}
+
+
+
+	protected abstract void startButtonAction();
+	
 }

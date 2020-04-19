@@ -1,8 +1,13 @@
 package korkmatik.main.model;
 
 import java.io.File;
+import java.util.ArrayList;
 
-import korkmatik.main.model.Temperature; 
+import korkmatik.main.model.Temperature;
+import korkmatik.utils.CelsiusToCelsiusConverter;
+import korkmatik.utils.CelsiusToFahrenheitConverter;
+import korkmatik.utils.CelsiusToKelvinConverter;
+import korkmatik.utils.Converter; 
 
 public class SettingsModel {
 
@@ -54,6 +59,26 @@ public class SettingsModel {
 
 	public void setSaveFile(File saveFile) {
 		this.saveFile = saveFile;
+	}
+	
+	public Converter getConverter() {
+		Converter converter;
+		switch (temperatureType) {
+		case CELSIUS:
+			converter = new CelsiusToCelsiusConverter();
+			break;
+		case KELVIN:
+			converter = new CelsiusToKelvinConverter();
+			break;
+		case FAHRENHEIT:
+			converter = new CelsiusToFahrenheitConverter();
+			break;
+		default:
+			converter = null;
+			break;
+		}
+		
+		return converter;
 	}
 
 	private SettingsModel() { }

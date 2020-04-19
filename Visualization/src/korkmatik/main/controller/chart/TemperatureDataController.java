@@ -16,9 +16,9 @@ public class TemperatureDataController extends ChartDataController {
 	}
 
 	@Override
-	public float getValue() {
-		// TODO: get value from service
-		return random.nextFloat();
+	public Float getValue() {
+		 Float value = getSerialCommService().getTemperature();
+		 return value;
 	}
 
 }

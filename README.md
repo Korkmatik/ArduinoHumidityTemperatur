@@ -27,3 +27,9 @@ The Java Project gets the data through the serial port and displays it in a Grap
 # Technology Stack
 * Programming Languages: C++, Java
 * SQL
+
+# What I've learned
+* Improved in Java, C++
+* Improved in Coding for the Arduino
+* Improved in using Java Swing
+* Learned JFreeChart

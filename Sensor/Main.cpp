@@ -19,7 +19,7 @@ void messageSendingProcess(float* temperature, float* humidity);
 
 void setup() {
 	sender = new Sender();
-	max = 3000ul;
+	max = 1000ul;
 }
 
 

@@ -14,10 +14,10 @@ The Java Project gets the data through the serial port and displays it in a Grap
 
 # Software
 * Eclipse
-* Eclipse Plugins: CDT, Arduino Plugin
+* Eclipse Plugins: Java, CDT, Arduino Plugin
 
 # Technology Stack
-* Programming Languages: C++, Java
+* Programming Languages: C++, Java 8
 * SQL
 
 ## Java Libraries

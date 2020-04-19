@@ -40,6 +40,7 @@ The Java Project gets the data through the serial port and displays it in a Grap
 * jSerialComm
 * Java Swing
 * JFreeChart
+* JDBC
 
 ## Arduino Libraries
 * [DHT driver library which was created by Ole Wolf](https://github.com/olewolf/DHT_nonblocking)

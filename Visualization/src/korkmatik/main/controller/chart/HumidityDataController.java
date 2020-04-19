@@ -2,6 +2,8 @@ package korkmatik.main.controller.chart;
 
 import java.util.Random;
 
+import korkmatik.main.controller.VisualizationController;
+
 public class HumidityDataController extends ChartDataController {
 
 	public HumidityDataController() {
@@ -10,8 +12,13 @@ public class HumidityDataController extends ChartDataController {
 
 	@Override
 	public Float getValue() {
-		Random random = new Random();
-		return random.nextFloat();
+		Float value = getSerialComService().getHumidity();
+		return value;
+	}
+
+	@Override
+	protected void saveData(Float newValue) {
+		VisualizationController visualizationController = getVisualizationController();
 	}
 
 }

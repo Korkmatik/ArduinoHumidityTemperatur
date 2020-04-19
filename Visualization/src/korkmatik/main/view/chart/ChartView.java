@@ -15,7 +15,6 @@ import korkmatik.main.controller.chart.ChartDataController;
 
 public abstract class ChartView extends JPanel {
 
-	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 5025131161902713651L;
 	
 	ChartDataController controller;
@@ -38,9 +37,9 @@ public abstract class ChartView extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (getController() != null) {
+				/*if (getController() != null) {
 					getController().removeData();
-				}
+				}*/
 				
 				startButtonAction();
 			}

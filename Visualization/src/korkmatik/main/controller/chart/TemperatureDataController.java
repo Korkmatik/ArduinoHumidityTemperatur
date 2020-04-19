@@ -21,4 +21,10 @@ public class TemperatureDataController extends ChartDataController {
 		 return value;
 	}
 
+	@Override
+	protected void saveData(Float newValue) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

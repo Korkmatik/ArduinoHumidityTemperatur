@@ -2,6 +2,7 @@ package korkmatik.main.controller.chart;
 
 import org.jfree.data.category.DefaultCategoryDataset;
 
+import korkmatik.main.controller.VisualizationController;
 import korkmatik.main.model.SettingsModel;
 import korkmatik.main.service.SerialComService;
 
@@ -15,12 +16,20 @@ public abstract class ChartDataController extends Thread {
 	private int currentX = 0;
 	private int lowerX = 0;
 	
+	private VisualizationController visualizationController;
+	private SettingsModel settingsModel;
 	
 	public ChartDataController(String yAxisName) {
-		String port = SettingsModel.getInstance().getCommPortName();
+		settingsModel = SettingsModel.getInstance();
+		String port = settingsModel.getCommPortName();
 		serialComService = new SerialComService(port);
 		
 		this.yAxisName = yAxisName;
+		
+		if (settingsModel.isSaveData()) {
+			visualizationController = new VisualizationController();
+			visualizationController.setup();
+		}
 	}
 	
 	public DefaultCategoryDataset getDataset()  {
@@ -40,10 +49,14 @@ public abstract class ChartDataController extends Thread {
 			if (newValue != null) {
 				dataset.addValue(newValue, yAxisName, Integer.toString(currentX));
 				currentX += SerialComService.getInterval();
-
+				
 				if (currentX > 30) {
 					dataset.removeValue(yAxisName, Integer.toString(lowerX));
 					lowerX += SerialComService.getInterval();
+				}
+				
+				if (settingsModel.isSaveData()) {
+					saveData(newValue);
 				}
 			}
 
@@ -55,6 +68,8 @@ public abstract class ChartDataController extends Thread {
 		}
 	}
 	
+	protected abstract void saveData(Float newValue);
+
 	public abstract Float getValue();
 
 	protected SerialComService getSerialComService() {
@@ -63,11 +78,16 @@ public abstract class ChartDataController extends Thread {
 
 	public void halt() {
 		serialComService.closeComPort();
+		visualizationController.closeDatabase();
 		stop();
 	}
 
 	public void removeData() {
 		dataset.clear();
+	}
+	
+	protected VisualizationController getVisualizationController() {
+		return this.visualizationController;
 	}
 
 }

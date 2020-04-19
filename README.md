@@ -12,14 +12,6 @@ The Java Project gets the data through the serial port and displays it in a Grap
 * Arduino Mega
 * USB Cable to connect the Arduino to a PC
 
-# Arduino Libraries
-* [DHT driver library which was created by Ole Wolf](https://github.com/olewolf/DHT_nonblocking)
-
-# Java Libraries
-* jSerialComm
-* Java Swing
-* JFreeChart
-
 # Software
 * Eclipse
 * Eclipse Plugins: CDT, Arduino Plugin
@@ -27,6 +19,14 @@ The Java Project gets the data through the serial port and displays it in a Grap
 # Technology Stack
 * Programming Languages: C++, Java
 * SQL
+
+## Java Libraries
+* jSerialComm
+* Java Swing
+* JFreeChart
+
+## Arduino Libraries
+* [DHT driver library which was created by Ole Wolf](https://github.com/olewolf/DHT_nonblocking)
 
 # What I've learned
 * Improved in Java, C++

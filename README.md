@@ -26,7 +26,7 @@ The Java Project gets the data through the serial port and displays it in a Grap
 ## Wiring
 * Connect the DHT11 Ground Pin to Ground
 * Connect the DHT11 VCC Pin to 5V
-* Connect the DHT11 Data Pin Digital 2
+* Connect the DHT11 Data Pin to Digital 2
 
 # Software
 * Eclipse

@@ -7,7 +7,7 @@ The Arduino is getting the current temperature and the current humidity in the r
 The Java Project gets the data through the serial port and displays it in a Graph. Furthermore the data can be stored in a database.
 
 # Screenshots
-## Setings Window
+## Settings Window
 ![Setings Window](Visualization/.doc/Screenshots/Settings.png)
 
 ## Visualization Window

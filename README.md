@@ -1,7 +1,4 @@
 # Description
-
-During this project I will be creating an Arduino project and an Java Project. 
-
 The Arduino is getting the current temperature and the current humidity in the room. I am using the Mega 2560 processor and the sensor is the DHT11 Temperature and Humidity module. 
 
 The Java Project gets the data through the serial port and displays it in a Graph. Furthermore the data can be stored in a database.
